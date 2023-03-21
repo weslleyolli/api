@@ -34,10 +34,18 @@ app.listen('3000')
     //res.send(req.params.identifiers)
 //})
 
+//PARAMS IN REQUEST
+//app.use(express.json())
+
+//app.route('/').get( (req, res) => res.send(req.query.name))
+
+//app.route('/').put( (req, res) => res.send(req.body.author))
+
+//app.route('/:paramters').get( (req, res) => res.send(req.params.paramters))
+
 app.use(express.json())
 
-app.route('/').get( (req, res) => res.send(req.query.name))
-
-app.route('/').put( (req, res) => res.send(req.body.author))
-
-app.route('/:paramters').get( (req, res) => res.send(req.params.paramters))
+app.route('/').post( (req, res) => {
+    const { name, city} = req.body
+    res.send(`${name} ${city}`)
+})
