@@ -6,3 +6,8 @@ app.listen('3000')
 
 app.route('/').get( (req, res) => res.send("hello"))
 app.route('/about').get( (req, res) => res.send("hello everyone"))
+
+//middleware
+app.use(express.json())
+
+app.route('/').post( (req, res) => res.send(req.body))
