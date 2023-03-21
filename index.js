@@ -4,7 +4,7 @@ const app = express();
 
 app.listen('3000')
 
-//Post
+//GET
 //app.route('/').get( (req, res) => res.send("hello"))
 //app.route('/about').get( (req, res) => res.send("hello everyone"))
 
@@ -14,14 +14,24 @@ app.listen('3000')
 
 //app.route('/').post( (req, res) => res.send(req.body))
 
-app.use(express.json())
+//PUT
+
+//app.use(express.json())
+
+//let author = "Weslley"
+
+//see what you had before 
+//app.route('/').get( (req, res) => res.send(author))
+
+//app.route('/').put( (req, res) => {
+    //author = req.body.author
+    //res.send(author)
+//})
 
 let author = "Weslley"
 
-//see what you had before 
-app.route('/').get( (req, res) => res.send(author))
-
-app.route('/').put( (req, res) => {
-    author = req.body.author
-    res.send(author)
+app.route('/:identifiers').delete( (req, res) => {
+    author = ""
+    res.send(req.params.identifiers)
 })
+
