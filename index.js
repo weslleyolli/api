@@ -52,8 +52,17 @@ app.listen('3000')
     //res.send(`${name} ${city}`)
 //})
 
-app.route('/').get( (req, res) => res.send("hello"))
+//QUERY PARAMS
+//app.route('/').get( (req, res) => res.send("hello"))
 
-app.route('/:name').get( (req, res) => res.send(req.params.name))
+//app.route('/:name').get( (req, res) => res.send(req.params.name))
 
-app.route('/identifiers/:var').get( (req, res) => res.send(req.params.var))
+//app.route('/identifiers/:var').get( (req, res) => res.send(req.params.var))
+
+//QUERY PARAMS
+
+//in insomnia localhost:3000?name=weslley&id=123
+
+app.route('/').get( (req, res) => res.send(req.query.name))
+
+app.route('/about').get( (req, res) => res.send(req.query.id))
