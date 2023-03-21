@@ -43,9 +43,17 @@ app.listen('3000')
 
 //app.route('/:paramters').get( (req, res) => res.send(req.params.paramters))
 
-app.use(express.json())
 
-app.route('/').post( (req, res) => {
-    const { name, city} = req.body
-    res.send(`${name} ${city}`)
-})
+//BODY PARAMS
+//app.use(express.json())
+
+//app.route('/').post( (req, res) => {
+    //const { name, city} = req.body
+    //res.send(`${name} ${city}`)
+//})
+
+app.route('/').get( (req, res) => res.send("hello"))
+
+app.route('/:name').get( (req, res) => res.send(req.params.name))
+
+app.route('/identifiers/:var').get( (req, res) => res.send(req.params.var))
