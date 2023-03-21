@@ -28,10 +28,16 @@ app.listen('3000')
     //res.send(author)
 //})
 
-let author = "Weslley"
+//let author = "Weslley"
 
-app.route('/:identifiers').delete( (req, res) => {
-    author = ""
-    res.send(req.params.identifiers)
-})
+//app.route('/:identifiers').delete( (req, res) => {
+    //res.send(req.params.identifiers)
+//})
 
+app.use(express.json())
+
+app.route('/').get( (req, res) => res.send(req.query.name))
+
+app.route('/').put( (req, res) => res.send(req.body.author))
+
+app.route('/:paramters').get( (req, res) => res.send(req.params.paramters))
