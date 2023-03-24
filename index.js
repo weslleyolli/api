@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 
 const app = express();
 
@@ -63,6 +64,15 @@ app.listen('3000')
 
 //in insomnia localhost:3000?name=weslley&id=123
 
-app.route('/').get( (req, res) => res.send(req.query.name))
+//app.route('/').get( (req, res) => res.send(req.query.name))
 
-app.route('/about').get( (req, res) => res.send(req.query.id))
+//app.route('/about').get( (req, res) => res.send(req.query.id))
+
+//Consumindo com axios pegando imagem do github
+
+app.route('/').get( (req, res) => {
+
+   axios.get('https://api.github.com/users/weslleyolli') 
+   .then(result => res.send(`<img src="${result.data.avatar_url}"/>`))
+   .catch(err => console.log(err))
+})
