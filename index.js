@@ -76,3 +76,10 @@ app.route('/').get( (req, res) => {
    .then(result => res.send(`<img src="${result.data.avatar_url}"/>`))
    .catch(err => console.log(err))
 })
+
+app.route('/').get( (req, res) => {
+
+    axios.get('https://api.github.com/users/weslleyolli') 
+    .then(result => res.send(`<img src="${result.data.avatar_url}"/>`))
+    .catch(err => console.log(err))
+ })
