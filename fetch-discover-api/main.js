@@ -9,7 +9,7 @@ function getUsers() {
         .catch(err => console.log(err))
 }
 
- function getUser() {
+function getUser() {
     fetch(`${url}/18`)
         .then(response => response.json())
         .then(data =>  {
@@ -18,9 +18,9 @@ function getUsers() {
             userAvatar.src = data.avatar
         })
         .catch(err => console.log(err))
- }
+}
 
- function addUser (newUser) {
+function addUser (newUser) {
     fetch(url, {
         method:"POST",
         body: JSON.stringify(newUser),
@@ -31,7 +31,11 @@ function getUsers() {
         .then(response => response.json())
         .then(data => alertApi.textContent = data)
         .catch(err => console.error(err))
- }
+}
+
+function updateUser() {
+    fetch(`${url}/1`)
+}
 
 const newUser = {
     name: "Gael Oliveira",
@@ -39,7 +43,13 @@ const newUser = {
     city: "Campina Grande"
 }
 
-addUser(newUser)
+const updateUser = {
+    name: "Weslley Olli",
+    avatar: "http://picsum.photos/200/300",
+    city: "Campina Grande" 
+}
+
+//addUser(newUser)
 
  getUser()
- getUsers() //getusers
+ getUsers() 
