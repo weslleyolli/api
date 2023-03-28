@@ -42,4 +42,4 @@ const newUser = {
 addUser(newUser)
 
  getUser()
- getUsers()
+ getUsers() //getusers
