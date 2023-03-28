@@ -44,6 +44,18 @@ function updateUser() {
         .catch(err => console.error(err))
 }
 
+function deleteUser(id) {
+    fetch(`${url}/${id}`, {
+        method:"DELETE",
+        headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+        }
+    })
+        .then(response => response.json())
+        .then(data => alertApi.textContent = data)
+        .catch(err => console.error(err))
+}
+
 const newUser = {
     name: "Gael Oliveira",
     avatar: "http://lorempixel.com/400/200",
@@ -56,9 +68,10 @@ const updatedUser = {
     city: "Campina Grande" 
 }
 
-updateUser(updatedUser)
+//updateUser(updatedUser)
 
-addUser(newUser)
+//addUser(newUser)
 
+deleteUser(1)
  getUser()
  getUsers() 
