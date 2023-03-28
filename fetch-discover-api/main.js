@@ -1,3 +1,5 @@
+
+
 const url = "http://localhost:5500/api"
 
 function getUsers() {
@@ -8,7 +10,7 @@ function getUsers() {
 }
 
  function getUser() {
-    fetch(`${url}/1`)
+    fetch(`${url}/18`)
         .then(response => response.json())
         .then(data =>  {
             userName.textContent = data.name
@@ -17,5 +19,27 @@ function getUsers() {
         })
         .catch(err => console.log(err))
  }
+
+ function addUser (newUser) {
+    fetch(url, {
+        method:"POST",
+        body: JSON.stringify(newUser),
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        }
+    })
+        .then(response => response.json())
+        .then(data => alertApi.textContent = data)
+        .catch(err => console.error(err))
+ }
+
+const newUser = {
+    name: "Gael Oliveira",
+    avatar: "http://lorempixel.com/400/200",
+    city: "Campina Grande"
+}
+
+addUser(newUser)
+
  getUser()
  getUsers()
