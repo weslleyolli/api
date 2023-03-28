@@ -1,5 +1,3 @@
-
-
 const url = "http://localhost:5500/api"
 
 function getUsers() {
@@ -34,7 +32,16 @@ function addUser (newUser) {
 }
 
 function updateUser() {
-    fetch(`${url}/1`)
+    fetch(`${url}/1`, {
+        method:"PUT",
+        body: JSON.stringify(updatedUser),
+        headers: {
+            "Content-Type": "application/json; charset=UTF-8"
+        }
+    })
+        .then(response => response.json())
+        .then(data => alertApi.textContent = data)
+        .catch(err => console.error(err))
 }
 
 const newUser = {
@@ -43,13 +50,15 @@ const newUser = {
     city: "Campina Grande"
 }
 
-const updateUser = {
+const updatedUser = {
     name: "Weslley Olli",
-    avatar: "http://picsum.photos/200/300",
+    avatar: "https://picsum.photos/200/300",
     city: "Campina Grande" 
 }
 
-//addUser(newUser)
+updateUser(updatedUser)
+
+addUser(newUser)
 
  getUser()
  getUsers() 
