@@ -1,8 +1,6 @@
-
-
 const url = "http://localhost:5500/api"
 
-function getUser() {
+function getUsers() {
     axios.get(url)
         .then(response => {
          apiResult.textContent =  JSON.stringify(response.data)
@@ -18,6 +16,18 @@ function addNewUser(newUser) {
         .catch(error => console.error(error))
 }
 
+function getUser(id) {
+    axios.get(`${url}/${id}`)
+        .then(response => {
+            const data = response.data
+            userName.textContent = data.name
+            userCity.textContent = data.city
+            userID.textContent = data.id
+            userAvatar.src = data.avatar
+        })
+        .catch(error => console.error(error))
+}
+
 getUser()
 
 const newUser = {
@@ -26,4 +36,4 @@ const newUser = {
     city: "Campina grande"
 }
 
-addNewUser(newUser)
+//addNewUser(newUser)
