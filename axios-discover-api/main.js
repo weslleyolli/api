@@ -28,7 +28,16 @@ function getUser(id) {
         .catch(error => console.error(error))
 }
 
-getUser()
+function updateUser(id) {
+    axios.put(url, id)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => console.error(error))
+}
+updateUser(3)
+
+getUsers()
 
 const newUser = {
     name: 'Weslley Olli',
